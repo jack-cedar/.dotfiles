@@ -58,7 +58,8 @@ with pkgs; [
   xdg-launch
   alacritty
   btop
-  
+
+  bat
 
   networkmanagerapplet
 
