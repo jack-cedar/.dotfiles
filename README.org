@@ -1,0 +1,3 @@
+* Refs
+ - https://github.com/engstrand-config/guix-dotfiles
+ - https://git.sr.ht/~krevedkokun/dotfiles/tree
