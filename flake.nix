@@ -12,12 +12,6 @@
       inherit (nixpkgs) lib;
       hmlib = home-manager.lib;
       
-      #systems = import ./systems { inherit pkgs lib; };
-
-     
-      
-     # inherit (systems) laptop;
-      
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -31,13 +25,8 @@
         jc = hmlib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
-        #  username = "jack";
-        #  homeDirectory = "/home/jack";
-          modules = [ ./jack/home.nix ];
-         
-            
+          modules = [ ./users/jack/home.nix ];
         };
-
       };
       
       nixosConfigurations = {
@@ -47,9 +36,7 @@
             ./hardware-configuration.nix
           ];
         };
-
       };
-
     };
 }
 
