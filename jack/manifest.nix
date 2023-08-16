@@ -9,16 +9,13 @@ with pkgs; [
   noto-fonts-cjk
   ipafont
   babashka
-  guile
   cider
   xboxdrv
   sqlite
-  p7zip
   flameshot
-  omnisharp-roslyn
-  avalonia-ilspy
   go
   gopls
+
   helix
   odin
   ols
