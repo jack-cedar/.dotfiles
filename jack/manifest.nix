@@ -1,61 +1,75 @@
 {pkgs, inputs, ...}:
-with pkgs; [
-  (opera.override { proprietaryCodecs = true; })
-  (nerdfonts.override {fonts = ["Iosevka"];})  
-  (python3.withPackages (p: with p; [ epc orjson six pip future ]))
+with pkgs;
+let
+  osu-lazer-b = pkgs.osu-lazer-bin.override { version = "2024.521.2"; };
+ 
+  
+in 
+[
+  openmw
+  odin ols
+  thunderbird
+  vlc
+
+  mullvad-vpn
+  
+
+  easyeffects
+  pkgs.dconf
+  qbittorrent
+
+  alsa-utils
+
+ 
   gcc
-  noto-fonts
-  fira-code
-  noto-fonts-cjk
-  ipafont
-  babashka
+ 
+  pavucontrol
   cider
-  xboxdrv
   sqlite
   flameshot
+  portmod
+  
+  
+  
+  ripgrep
+  stack
+  ghc
+  nixd
+  
+  
+  texlive.combined.scheme-full
+  pandoc
+
+  arandr
+  acpi
   go
   gopls
 
-  helix
-  odin
-  ols
+  
   pkg-config
-  zeromq
-  libsodium
   glfw
   firefox
   
-  # np2kai
-  pass
-  microsoft-edge
+    microsoft-edge
   dunst
   udiskie
-  polybar
-  gnumake
-  sqlc
+  
+  
 
-  inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
-
-  #inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+ inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+ # inputs.nix-gaming.packages.${pkgs.system}.osu-stable
   
   gimp
   unrar
   direnv
   nix-direnv
-  rust-analyzer 
-  cargo 
-  
-  scrot
-
   xclip
   xdotool
   xorg.xprop
   xorg.xwininfo
   protonup-ng
 
-  xdg-utils
-  xdg-desktop-portal-gtk
-  xdg-launch
+ 
   alacritty
   btop
 
@@ -63,7 +77,7 @@ with pkgs; [
 
   networkmanagerapplet
 
-  haskell-language-server
+ 
   
   
   opentabletdriver

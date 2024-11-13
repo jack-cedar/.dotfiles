@@ -20,13 +20,21 @@
       extraGroups = ["networkmanager" "wheel" "video" "audio"];
     };};
 
+
+  nixpkgs.config.permittedInsecurePackages = [ "openssl_1_1" ];
+
   # System Packages 
   environment.systemPackages  = with pkgs; [
+   
     git
     vim
     curl
+    pamixer
     emacs29
   ];
+
+ 
+
 
   # Services
  

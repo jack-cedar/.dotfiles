@@ -1,1 +1,4 @@
 * My Nixos Configuration Flake
+
+* update scripts
+ 

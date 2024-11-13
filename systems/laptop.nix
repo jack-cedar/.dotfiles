@@ -6,6 +6,30 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  #xdg.portal.enable = true;
+  #services.flatpak.enable = true;
+ 
+  services.mullvad-vpn.enable = true;
+  programs.noisetorch.enable = true;
+  virtualisation.podman.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+  nix.optimise.automatic = true;
+
+  services.guix.enable = true;
+ 
+  services.hydra = {
+    enable = true;
+    hydraURL = "http://localhost:3000";
+    notificationSender = "hydra@localhost";
+    buildMachinesFiles = [];
+    useSubstitutes = true;
+  };
+  
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -13,8 +37,18 @@
       "ja_JP.UTF-8/UTF-8"
     ];};
     
-  fonts.packages = with pkgs; [iosevka];	
-    
+  fonts.packages = with pkgs; [iosevka-comfy.comfy
+                               (nerdfonts.override { fonts = ["Iosevka"]; })
+                              ];
+
+  programs.java.enable = true; 
+ 
+
+
+  programs.steam.enable = true;
+ 
+
+  
   services.xserver = {
     layout = "us";
     xkbVariant = "";
@@ -25,6 +59,8 @@
      lightdm.enable = true;
      defaultSession = "exwm";
     };
+
+   
     desktopManager = {
       session = [ {
         manage = "desktop";
@@ -38,6 +74,8 @@
         export  QT_IM_MODULE="fcitx5"
         fcitx5 &
         
+        wmname LG3D 
+        export _JAVA_AWT_WM_NONREPARENTING=1
   
         ${pkgs.emacs29}/bin/emacs &
         waitPID=$! '';
